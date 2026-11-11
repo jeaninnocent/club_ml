@@ -1,0 +1,80 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║         DÉPLOIEMENT VERCEL - CLUB MACHINE LEARNING PLATEFORME              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+🚀 DÉMARRAGE RAPIDE (5 minutes):
+
+1. POUSSER SUR GITHUB
+   ─────────────────────
+   git init
+   git add .
+   git commit -m "Initial commit"
+   git remote add origin https://github.com/VOTRE_USERNAME/club-ml-plateforme.git
+   git branch -M main
+   git push -u origin main
+
+2. CRÉER UN PROJET VERCEL
+   ──────────────────────
+   → Allez sur https://vercel.com/new
+   → Connectez-vous avec GitHub
+   → Sélectionnez votre repo
+   → Cliquez "Import"
+
+3. CONFIGURER LES VARIABLES (CRITIQUE)
+   ──────────────────────────────────
+   Dans Vercel → Settings → Environment Variables:
+
+   ADMIN_USER = admin
+   ADMIN_PASSWORD = GÉNÉREZ_UN_MOT_DE_PASSE_FORT
+   SECRET_KEY = GÉNÉREZ_UNE_CLÉ (voir étape 4)
+   DB_PATH = /tmp/club.db
+
+4. GÉNÉRER UNE CLÉ SECRÈTE
+   ────────────────────────
+   python -c "import secrets; print(secrets.token_hex(32))"
+   
+   Copiez-collez le résultat dans SECRET_KEY sur Vercel
+
+5. DÉPLOYER
+   ────────
+   Cliquez "Deploy" → Attendez 2-3 minutes → C'est fini! ✓
+
+📍 VOTRE APP SERA À:
+   https://votre-nom-du-projet.vercel.app
+
+🔐 ACCÈS:
+   - Apprenant: https://votre-app.vercel.app/login
+   - Admin: https://votre-app.vercel.app/admin/login
+
+───────────────────────────────────────────────────────────────────────────────
+
+⚠️ IMPORTANT - LIMITATIONS VERCEL:
+
+❌ SQLite ne fonctionne PAS en production (pas de stockage persistant)
+   → Chaque redéploiement/redémarrage réinitialise la BD
+
+✅ SOLUTIONS:
+   1. Développement/Test: C'est OK comme ça
+   2. Production: Utiliser PostgreSQL (ElephantSQL/Supabase gratuit)
+
+───────────────────────────────────────────────────────────────────────────────
+
+📚 DOCUMENTATION COMPLÈTE:
+   Voir VERCEL_DEPLOYMENT.md pour:
+   - Migrer vers PostgreSQL
+   - Configurer un domaine personnalisé
+   - Dépannage et logs
+   - Configuration avancée
+
+───────────────────────────────────────────────────────────────────────────────
+
+💡 CONSEILS:
+
+✓ Utilisez ADMIN_PASSWORD fort (minuscules, majuscules, chiffres, symboles)
+✓ Ne committez jamais .secret ou club.db
+✓ Versionnez le code via Git (laisser Vercel faire les déploiements)
+✓ Consultez les logs Vercel si problème: https://vercel.com/dashboard
+
+───────────────────────────────────────────────────────────────────────────────
+
+Questions ou problèmes? Consultez VERCEL_DEPLOYMENT.md
